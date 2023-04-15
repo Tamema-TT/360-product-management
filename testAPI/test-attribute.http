@@ -1,0 +1,90 @@
+@baseUrl = http://localhost:3000/attributes
+@baseUrl2 = http://localhost:3000/attributeValues
+
+POST {{baseUrl}}/create-attribute HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Size"
+}
+
+###
+POST {{baseUrl}}/create-attribute HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Color"
+}
+
+###
+GET {{baseUrl}}/
+
+###
+GET {{baseUrl}}/2
+
+###
+PUT {{baseUrl}}/update-attribute/2 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Color"
+}
+
+###
+DELETE {{baseUrl}}/delete-attribute/1 HTTP/1.1
+Content-Type: application/json
+
+### attribute values start
+POST {{baseUrl2}}/create-attribute-value HTTP/1.1
+Content-Type: application/json
+
+{
+    "value": "L",
+    "attribute_id": 1
+}
+
+###
+POST {{baseUrl2}}/create-attribute-value HTTP/1.1
+Content-Type: application/json
+
+{
+    "value": "XL",
+    "attribute_id": 1
+}
+
+###
+POST {{baseUrl2}}/create-attribute-value HTTP/1.1
+Content-Type: application/json
+
+{
+    "value": "Red",
+    "attribute_id": 2
+}
+
+###
+POST {{baseUrl2}}/create-attribute-value HTTP/1.1
+Content-Type: application/json
+
+{
+    "value": "Green",
+    "attribute_id": 2
+}
+
+###
+GET {{baseUrl2}}/
+
+###
+GET {{baseUrl2}}/2
+
+###
+PUT {{baseUrl2}}/update-attribute-value/2 HTTP/1.1
+Content-Type: application/json
+
+{
+    "value": "L",
+    "attribute_id": 3
+}
+
+###
+DELETE {{baseUrl2}}/delete-attribute-value/2 HTTP/1.1
+Content-Type: application/json

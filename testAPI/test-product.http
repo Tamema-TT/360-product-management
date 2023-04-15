@@ -1,0 +1,38 @@
+@baseUrl = http://localhost:3000/products
+
+POST {{baseUrl}}/create-product HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "New Product 2",
+  "price": 9.99,
+  "description": "This is a new product.",
+  "is_active": true,
+  "categories": [
+    {
+      "id": 1
+    },
+    {
+      "id": 4
+    }
+  ],
+  "attributes": [
+    {
+      "id": 1
+    },
+    {
+      "id": 3
+    }
+  ]
+}
+
+###
+GET {{baseUrl}}/
+
+###
+GET {{baseUrl}}/category-status?category=Electronics&status=1
+
+###
+DELETE {{baseUrl}}/delete-product/5 HTTP/1.1
+Content-Type: application/json
+
